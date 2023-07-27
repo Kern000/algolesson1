@@ -1,0 +1,179 @@
+-- Algorithm Basic Lesson 1 --
+
+Considerations of complexity:
+1. Time
+2. Memory (ram) - if code for potato phone, will need to be mindful of ram
+3. Accuracy - consistency (a + b + c = amount)
+
+O(n) is only interested in worst case.
+O(n) time complexity not affected by CPU processing speed.
+
+if we regard every line in the code as 1 unit of cost
+4 + 5n means
+(4 that is not in loop, then for those from the for loop until the break command, all these inside is counted in the O(n))
+
+constants negligible - we remove the constants from O(n)
+
+Some examples:
+1. linear search (insert sort etc.)
+2. n2 is polynomial
+3. log n is base 2 log --> This is industry standard, must be log n
+
+Javascript .sort() is quick sort
+
+In contrast:
+Fibonacci number is the sum of the preceding 2 numbers
+Fib(5) is Fib(4) + Fib(3)
+Fib(4) is Fib(3) + Fib(2)
+so on and so forth...
+To find one Fib(5) need about 13 - it is about 2^n
+
+There is alot of repeat numbers
+so use dynamic programming
+store the result in a variable
+- so dun need to calculate again
+
+growth of CPU speed is linear - it cannot keep up with inefficient Algorithm
+
+Mongo SQL - presorted - this why databases are fast
+(indexing and layers of indexing)
+
+--- Other considerations on top of time and space complexities ---
+Network time to send data
+impact on the RAM of the server
+I/O to read and write data on database
+re-rendering (and other moving parts) - can cause alot more load if keep rerendering other parts
+
+--- Types of Indexing ---
+
+1. alphabetic indexing (can be firstlayer)
+2. Inverted Indexing - the keyword is in the document or records (retrieve docs based on the keyword) - search engines
+3. Spatial indexing - geographical Indexing
+4. B-tree indexing
+5. Hash indexing - map keys to specific locations in the index
+6. Bitmap indexing - ea bit corresponds to record in database
+7. Suffix array/index - string pattern matching (abit like $regex)
+8. Full-text indexing- search natural text - break text into words - creating index for fast keyword searches
+9. Cluster indexing - sorted based on index key.
+
+--------------------------
+
+iterative vs recursive
+
+Recursive:
+
+function printTo(current, max){
+    if (current == max){
+        return;
+    }
+    console.log(current)
+    printTo(current+1, max)
+}
+printTo(0,5)
+
+every recursive function has
+1. base case which solves the problem (when we dun hv to recurse anymore)
+2. recursive part - call the printTo function again
+// size of the problem must shrink ea time
+// recurse will end when reach the base case
+
+function summation(n){
+    if (n === 1){
+        return 1;
+    }
+    return n + summation(n -1)
+}
+
+================================================
+-- Risks of Recursive Functions --
+
+Stack overflow - the process runned will keep adding on memory requirement, calling functions over and over during its recursive process.
+
+everytime call a function - will create a stack frame - all these eat memory - stack frame is created to store local variables, arguments, and other relevant information for that function call.
+
+It will clear (stack frame deallocated) when the function completes its execution.
+
+------------------------------------------------
+If a frame is too big (like have alot of local variables and big arguments to process), it can overwhelm the memory.
+
+Or if one function is too big, still many functions inside it running even if it is iterative. 
+(like a very complex function that does alot of things, mini functions inside)
+
+OS will allocate a process a specific amount of ram, if stack is bigger than that allocated amount = crash.
+
+Node.js cannot recover from stack overflow
+- doesnt matter if its restful or non-restful API
+- could be important to put limit
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
